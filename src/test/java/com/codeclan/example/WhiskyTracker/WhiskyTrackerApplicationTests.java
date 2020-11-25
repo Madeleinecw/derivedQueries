@@ -42,8 +42,7 @@ public class WhiskyTrackerApplicationTests {
 
 	@Test
 	public void canFindWhiskysByDistilleryAndYear(){
-		Distillery foundDistillery = distilleryRepository.getOne(1L);
-		List<Whisky> found = whiskyRepository.findWhiskysByDistilleryIdAndYear(foundDistillery.getId(), 2018);
+		List<Whisky> found = whiskyRepository.findWhiskysByDistilleryIdAndYear(1L, 2018);
 		assertEquals(2, found.size());
 	}
 

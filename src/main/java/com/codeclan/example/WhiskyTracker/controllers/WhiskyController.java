@@ -22,7 +22,7 @@ public class WhiskyController {
 
     @GetMapping(value = "/whiskys")
     public ResponseEntity<List<Whisky>> findWhiskys(
-            @RequestParam Integer age, @RequestParam Long id
+            @RequestParam(value= "age", required = false) Integer age, @RequestParam(value = "id", required = false) Long id
             ){
         if(age != null && id == null){
             return new ResponseEntity<>(whiskyRepository.findWhiskysByYear(age), HttpStatus.OK);
@@ -32,5 +32,4 @@ public class WhiskyController {
         }
         return new ResponseEntity<>(whiskyRepository.findAll(), HttpStatus.OK);
     }
-
 }
